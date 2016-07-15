@@ -8,13 +8,13 @@
 
 Use in `ondragstart` event handler to set data on the event. `(drag-set 'plain/text' 'some text')` is equivalent to calling `event.dataTrasfer.setData('plain/text')` in the event handler.
 
-```
+```hbs
 <div draggable="true" ondragstart={{action (drag-set 'plain/text' 'some text')}}></div>
 ```
 
 This helper can accept `application/json` mime type in which case it will `JSON.stringify` the received data.
 
-```
+```hbs
 <div draggable="true" ondragstart={{action (drag-set "application/json" (hash id=123 color='red'))}}></div>
 ```
 
