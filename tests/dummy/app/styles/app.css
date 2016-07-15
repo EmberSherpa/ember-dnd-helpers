@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
+.board {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  flex: 1 1 25%;
+  border: 2px dashed cornflowerblue;
+  margin: 0 5px;
+}
+
+.card {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid cadetblue;
+  border-radius: 25px;
+}

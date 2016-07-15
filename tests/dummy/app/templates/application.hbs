@@ -1,0 +1,23 @@
+<div class="board">
+{{#with (array 
+  (hash name="Cards" class="cards" property="model")
+  (hash name="Backlog" class="backlog" property="backlog")
+  (hash name="Pending" class="pending" property="pending")
+  (hash name="Complete" class="complete" property="complete")
+) as |columns|}}
+  {{#each columns as |column|}}
+      <div class="{{column.class}} column"
+        ondrop={{action (pipe (prevent-default) (drag-get "application/json") (action 'add' column.property))}}
+        ondragover={{action (pipe (prevent-default) (drop-effect 'move'))}}
+      >
+      <h3>{{column.name}}</h3>
+      {{#each (get this column.property) as |card|}}
+        <div class="card" draggable="true" ondragstart={{action (drag-set "application/json" (hash id=card.id from=column.property))}}>
+          <h3>{{card.title}}</h3>
+          <p>{{card.description}}</p>
+        </div>
+      {{/each}}
+    </div>
+  {{/each}}
+{{/with}}
+</div>
