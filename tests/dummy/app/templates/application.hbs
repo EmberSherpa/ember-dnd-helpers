@@ -15,21 +15,21 @@
 ) as |columns|}}
   {{#each columns as |column|}}
       <div class="{{column.class}} column"
-        ondrop={{action (pipe (prevent-default) (drag-get "application/json") (action 'add' column.property))}}
+        ondrop={{action (pipe (prevent-default) (action 'add' dragging from (get this column.property)))}}
         ondragover={{action (pipe (prevent-default) (drop-effect 'move'))}}
       >
       <h3>{{column.name}}</h3>
       {{#each (get this column.property) as |card|}}
         <div class="card" 
              draggable="true"
-             ondragstart={{action (pipe (drag-set "application/json" (hash id=card.id from=column.property)) (action (mut dragging) card))}}
-             ondragend={{action (action (mut dragging) null)}}>
+             ondragstart={{action (pipe (action (mut dragging) card) (action (mut from) (get this column.property)))}}
+             ondragend={{action (pipe (action (mut dragging) null) (action (mut from) null))}}>
           <h3>{{card.title}}</h3>
           <p>{{card.description}}</p>
         </div>
 
-        <div class="dropzone {{if (and (eq hovered.id card.id) (not (eq dragging card))) 'hovered'}}"
-          ondrop={{action (pipe (prevent-default) (stop-propagation) (drag-get "application/json") (action 'after' column.property) (action (mut hovered) null))}}
+        <div class="dropzone {{if (and (eq hovered card) (not (eq dragging card))) 'hovered'}}"
+          ondrop={{action (pipe (prevent-default) (stop-propagation) (action 'after' dragging from (get this column.property) hovered) (action (mut hovered) null))}}
           ondragenter={{action (mut hovered) card}}
           ondragleave={{action (mut hovered) null}}
         >

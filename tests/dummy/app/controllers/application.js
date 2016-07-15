@@ -9,25 +9,22 @@ export default Ember.Controller.extend({
   pending: [],
   complete: [],
   actions: {
-    add(to, {from, id}) {
-      let destination = new A(this.get(to));
-      let source = new A(this.get(from));
+    add(card, from, to) {
+      to = new A(to);
+      from = new A(from);
 
-      let card = source.findBy('id', id);
-      source.removeObject(card);
+      from.removeObject(card);
 
-      destination.pushObject(card);
+      to.pushObject(card);
     },
-    after(to, {from, id}) {
-      let destination = new A(this.get(to));
-      let source = new A(this.get(from));
-      let hovered = this.get('hovered');
+    after(card, from, to, hovered ) {
+      to = new A(to);
+      from = new A(from);
 
-      let card = source.findBy('id', id);
-      source.removeObject(card);        
+      from.removeObject(card);        
 
-      let index = destination.indexOf(hovered);
-      destination.insertAt(index+1, card);
+      let index = to.indexOf(hovered);
+      to.insertAt(index+1, card);
     }
   }
 });
