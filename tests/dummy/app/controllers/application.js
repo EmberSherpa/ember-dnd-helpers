@@ -17,6 +17,9 @@ export default Ember.Controller.extend({
       source.removeObject(card);
 
       destination.pushObject(card);
+    },
+    after() {
+      
     }
   }
 });

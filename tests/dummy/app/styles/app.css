@@ -19,3 +19,12 @@
   border: 1px solid cadetblue;
   border-radius: 25px;
 }
+
+.dropzone {
+  height: 30px;
+  background: lightskyblue;
+}
+
+.dropzone.hovered {
+  background: lightpink;
+}
