@@ -1,0 +1,1 @@
+*{box-sizing:border-box}.board{display:flex;flex-direction:row}.column{flex:1 1 25%;border:2px dashed #6495ed;margin:0 5px}.card{margin:10px;padding:10px;border:1px solid #5f9ea0;border-radius:25px}.dropzone{height:30px;background:#87cefa}.dropzone.hovered{background:#ffb6c1}
