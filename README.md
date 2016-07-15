@@ -1,5 +1,9 @@
 # ember-dnd-helpers
 
++[![Build Status](https://travis-ci.org/EmberSherpa/ember-dnd-helpers.svg)](https://travis-ci.org/EmberSherpa/ember-dnd-helpers)
++[![npm version](https://badge.fury.io/js/ember-dnd-helpers.svg)](http://badge.fury.io/js/ember-dnd-helpers)
++[![Dependency Status](https://david-dm.org/EmberSherpa/ember-dnd-helpers.svg)](https://david-dm.org/EmberSherpa/ember-dnd-helpers)
+
 ## `(drag-set 'plain/text' 'some text')`
 
 Use in `ondragstart` event handler to set data on the event. `(drag-set 'plain/text' 'some text')` is equivalent to calling `event.dataTrasfer.setData('plain/text')` in the event handler.
@@ -58,3 +62,7 @@ Applies specified drop effect onto the event. Equivalent to calling `even.dropEv
 * `ember build`
 
 For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
+
+## Credits
+
+Thank you Miguel Camba for suggesting to try doing drag and drop with pure events.
