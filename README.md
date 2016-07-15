@@ -1,6 +1,40 @@
-# Ember-dnd-helpers
+# ember-dnd-helpers
 
-This README outlines the details of collaborating on this Ember addon.
+## `(drag-set 'plain/text' 'some text')`
+
+Use in `ondragstart` event handler to set data on the event. `(drag-set 'plain/text' 'some text')` is equivalent to calling `event.dataTrasfer.setData('plain/text')` in the event handler.
+
+```
+<div draggable="true" ondragstart={{action (drag-set 'plain/text' 'some text')}}></div>
+```
+
+This helper can accept `application/json` mime type in which case it will `JSON.stringify` the received data.
+
+```
+<div draggable="true" ondragstart={{action (drag-set "application/json" (hash id=123 color='red'))}}></div>
+```
+
+## `(drag-get 'plain/text')`
+
+Use in `ondrop` event handler to retrieve data set with `event.dataTransfer.setData`. `(drag-get 'plain/text')` is equivalent to `event.dataTransfer.getData('plain/text')`.
+
+```hbs
+<div ondrop={{action (pipe (prevent-default) (drag-get 'plain/text') (action 'dosomething'))}}></div>
+```
+
+This helper can accept `application/json` mime type in which case it will `JSON.parse` the received data.
+
+## `(prevent-default)`
+
+Calls `event.preventDefault()`.
+
+## `(stop-propagating)
+
+Calls `event.stopPropagating()`.
+
+## `(drop-effect 'move')`
+
+Applies specified drop effect onto the event. Equivalent to calling `even.dropEvent = move`;
 
 ## Installation
 
