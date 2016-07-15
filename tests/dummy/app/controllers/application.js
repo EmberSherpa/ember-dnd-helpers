@@ -18,8 +18,16 @@ export default Ember.Controller.extend({
 
       destination.pushObject(card);
     },
-    after() {
-      
+    after(to, {from, id}) {
+      let destination = new A(this.get(to));
+      let source = new A(this.get(from));
+      let hovered = this.get('hovered');
+
+      let card = source.findBy('id', id);
+      source.removeObject(card);        
+
+      let index = destination.indexOf(hovered);
+      destination.insertAt(index+1, card);
     }
   }
 });

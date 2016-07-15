@@ -21,8 +21,7 @@
         </div>
 
         <div class="dropzone {{if (and (eq hovered.id card.id) (not (eq dragging card))) 'hovered'}}"
-          ondrop={{action (pipe (prevent-default) (drag-get "application/json") (action 'after' column.property) (action (mut hovered) null))}}
-          ondragover={{action (pipe (prevent-default) (drop-effect 'move'))}}
+          ondrop={{action (pipe (prevent-default) (stop-propagation) (drag-get "application/json") (action 'after' column.property) (action (mut hovered) null))}}
           ondragenter={{action (mut hovered) card}}
           ondragleave={{action (mut hovered) null}}
         >
