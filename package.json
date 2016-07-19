@@ -1,6 +1,6 @@
 {
   "name": "ember-dnd-helpers",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Collection of helpers to assist in building drag and drop interfaces",
   "directories": {
     "doc": "doc",
