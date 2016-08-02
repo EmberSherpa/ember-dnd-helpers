@@ -38,7 +38,7 @@ Calls `event.stopPropagating()`.
 
 ## `(drop-effect 'move')`
 
-Applies specified drop effect onto the event. Equivalent to calling `even.dropEvent = move`;
+Applies specified drop effect onto the event. Equivalent to calling `event.dropEvent = move`;
 
 ## Installation
 
