@@ -32,6 +32,12 @@ This helper can accept `application/json` mime type in which case it will `JSON.
 
 Calls `event.preventDefault()`.
 
+To allow a drop, we must prevent the default handling of the element in `ondragover`.
+
+```hbs
+<div ondragover={{action (prevent-default)}} ondrop=...></div>
+```
+
 ## `(stop-propagating)
 
 Calls `event.stopPropagating()`.
