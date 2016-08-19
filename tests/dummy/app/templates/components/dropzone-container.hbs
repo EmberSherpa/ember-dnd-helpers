@@ -1,0 +1,14 @@
+<section
+  ondragenter={{action (mut hovered) dragging}}
+  ondragleave={{action (pipe (action (mut hovered) null) (action 'logDragleave'))}}
+>
+<div class="nestedDropzone {{if (and hovered (not-eq card hovered)) 'hovered'}}"
+  ondragleave={{action (stop-propagation)}}
+>
+</div>
+<div ondragleave={{action (stop-propagation)}}>{{yield}}</div>
+<div class="nestedDropzone {{if (and hovered (not-eq card hovered)) 'hovered'}}"
+  ondragleave={{action (stop-propagation)}}
+>
+</div>
+</section>
