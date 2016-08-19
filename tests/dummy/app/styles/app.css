@@ -28,3 +28,11 @@
 .dropzone.hovered {
   background: lightpink;
 }
+
+.nestedDropzone {
+  background: blue;
+}
+
+.nestedDropzone.hovered {
+  height: 40px;
+}
